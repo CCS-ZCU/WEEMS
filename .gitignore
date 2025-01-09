@@ -1,5 +1,4 @@
 /data/private-data/*
-/noscemus_venv/
 .env
 .DS_Store
 /data/ServiceAccountsKey.json
