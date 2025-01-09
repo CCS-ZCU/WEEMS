@@ -13,11 +13,22 @@ CC-BY-SA 4.0, see attached License.md
 ---
 
 In this repository, we train a series of word vector models on Latin texts from the [Noscemus](https://wiki.uibk.ac.at/noscemus/Main_Page)) database 
-of early modern scientific texts in Latin. We train the models on textual data which we previously preprocessed and 
-automat morphologically annotated using scripts in the following GitHub repository: https://github.com/CCS-ZCU/noscemus_ETF.
+of early modern scientific texts in Latin. In particular, we generate models for **four Noscemus subcorpora**, each covering only works
+with the date of publication falling into one of four half-centuries intervals:
+* 1501-1550
+* 1551-1600
+* 1601-1650
+* 1651-1700
 
-Thus, the input data for the trained models is a set of automatically lemmatized and morphological annotated latin sentences.
-From the lemmatized sentences, we filter only for words morphologically annotated as nouns (NOUN), verbs, adjectives and 
+We train the models on textual data which we previously preprocessed and 
+automatically morphologically annotated using scripts in the following GitHub repository: https://github.com/CCS-ZCU/noscemus_ETF. 
+Thus, the training textual data have the form of automatically lemmatized and morphologically annotated latin sentences.
+
+From these sentances, we first filter only for words morphologically annotated as nouns (NOUN), verbs (VERB), 
+adjectives (ADJ) and proper names (PROPN), as these words tend to be semanitically most loaded words.  
+
+Subsequently, we calculate raw frequencies of these words across the four subcorpora. These frequencies we employ to further 
+reduce the size of the vocabulary, i.e. the list of words for which we generate the vectors.   
 
 
 
