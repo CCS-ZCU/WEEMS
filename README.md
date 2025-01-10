@@ -33,9 +33,8 @@ Second, we exclude all words appearing less than 5 times in any of the subcorpus
 
 For the models, we employ the FastText algorithm, with the exactly the same parametrization as in this paper:
 * Sprugnoli, R., Moretti, G., & Passarotti, M. (2020). Building and Comparing Lemma Embeddings for Latin. Classical Latin versus Thomas Aquinas. Italian Journal of Computational Linguistics, 6(1). https://doi.org/10.5281/ZENODO.4618000
-This makes our vectors directly comparible with their vectors generated for Lasla and OperaMaiora. 
 
-Accordingly, we also include their vector data for reference.
+This makes our vectors directly comparible with their vectors generated for Lasla and OperaMaiora. Accordingly, we also include their vector data for reference.
 
 This repository is part of the [TOME project](https://tome.flu.cas.cz).
 
