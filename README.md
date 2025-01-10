@@ -27,14 +27,13 @@ Thus, the training textual data have the form of automatically lemmatized and mo
 From these sentances, we first filter only for words morphologically annotated as nouns (NOUN), verbs (VERB), 
 adjectives (ADJ) and proper names (PROPN), as these words tend to be semanitically most loaded words.  
 
-Subsequently, we calculate raw frequencies of these words across the four subcorpora. These frequencies we employ to further 
-reduce the size of the vocabulary, i.e. the list of words for which we generate the vectors.   
+Further, we calculate raw frequencies of these words across the four subcorpora. These frequencies we employ to further 
+reduce size of the vocabulary, i.e. of the list of words for which we generate the vectors. First, we extract 2,000 most frequent (lemmatized) words for each subcorpus. This produces a list of 6643 unique words. 
+Second, we exclude all words appearing less than 5 times in any of the subcorpus. This reduces the vocabulary to 6,005 unique lemmata
 
-
-
-
-
-
+For the models, we employ the FastText algorithm, with the exactly the same parametrization as in this paper:
+* Sprugnoli, R., Moretti, G., & Passarotti, M. (2020). Building and Comparing Lemma Embeddings for Latin. Classical Latin versus Thomas Aquinas. Italian Journal of Computational Linguistics, 6(1). https://doi.org/10.5281/ZENODO.4618000
+This makes our vectors directly comparible with their vectors generated for Lasla and OperaMaiora. Accordingly, we also include their vector data for reference.
 
 This repository is part of the [TOME project](https://tome.flu.cas.cz).
 
