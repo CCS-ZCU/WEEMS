@@ -4,6 +4,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.10 virtualenv at /srv/venvs/latin_venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="EMLAP_ETL" />
+    <orderEntry type="module" module-name="TOME" />
   </component>
 </module>
