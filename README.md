@@ -53,7 +53,6 @@ For the models, we employ the FastText algorithm, with the exact same parametriz
       vectors_dict = pickle.load(file)
   ```
 
-  This repository is part of the TOME project.
 This repository is part of the [TOME project](https://tome.flu.cas.cz).
 
 # Getting started
