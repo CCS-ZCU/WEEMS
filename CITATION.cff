@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "WEEMS: Word Embeddings for Early Modern Science"
+version: "0.3"
+description:
+  In this project, we train a series of word vector models on two corpora of Early Modern Latin texts:
+  * Noscemus Digital Sourcebook (a corpus of digitized Early modern scientific texts in Latin, https://doi.org/10.5281/zenodo.15040256)
+  * EMLAP (a corpus of digitized Early Modern Latin Alchemical Prints, https://doi.org/10.5281/zenodo.14765294)
+  In addition to that, for comparison, we also implement two other word embedding models based on LASLA and OperaMaiora publicly available from here: https://embeddings.lila-erc.eu/#topnav
+  In total, we offer 4 temporal models based on NOSCEMUS, 8 discipline-specific models based on NOSCEMUS, 1 model trained on the EMLAP corpus, and two pretrained models inherited from other resources.
+  * NOSCEMUS - 1501-1550
+  * NOSCEMUS - 1551-1600,
+  * NOSCEMUS - 1601-1650,
+  * NOSCEMUS - 1651-1700,
+  * NOSCEMUS - Alchemy/Chemistry
+  * NOSCEMUS - Astronomy/Astrology/Cosmography
+  * NOSCEMUS - Biology
+  * NOSCEMUS - Geography/Cartography
+  * NOSCEMUS - Mathematics
+  * NOSCEMUS - Medicine
+  * NOSCEMUS - Meteorology/Earth sciences
+  * NOSCEMUS - Physics
+  * EMLAP
+  * LASLA
+  * Opera Maiora
+  We train the models on textual data, which we previously preprocessed and automatically morphologically annotated using scripts in the following GitHub repositories: https://github.com/CCS-ZCU/noscemus_ETF and https://github.com/CCS-ZCU/EMLAP_ETL. Thus, the training textual data have the form of automatically lemmatized and morphologically annotated Latin sentences.
+
+  From these sentences, we first filter only for words morphologically annotated as nouns (NOUN), verbs (VERB), adjectives (ADJ), and proper names (PROPN), as these words tend to be semantically most loaded words.
+
+  Further, we calculate raw frequencies of these words across the four subcorpora. These frequencies we employ to further reduce the size of the vocabulary, i.e., the list of words for which we generate the vectors. First, we extract 2,000 most frequent (lemmatized) words for each subcorpus. This produces a list of 6643 unique words. Second, we exclude all words appearing less than 5 times in any of the subcorpora. This reduces the vocabulary to 6,005 unique lemmata. Thus, the models can be aligned by an extensive shared vocabulary overlap.
+
+  For the models, we employ the FastText algorithm, with the exact same parametrization as in this paper:
+
+  Sprugnoli, R., Moretti, G., & Passarotti, M. (2020). Building and Comparing Lemma Embeddings for Latin. Classical Latin versus Thomas Aquinas. Italian Journal of Computational Linguistics, 6(1). https://doi.org/10.5281/ZENODO.4618000
+
+  This makes our vectors directly comparable with their vectors generated for Lasla and OperaMaiora.
+
+  The models are available in the form of one pickle file as a Python dictionary of Gensim library keyed vectors: `/data/vectors_dict_comp_v0-3.pkl`. Once you download or clone the repository, you can load them directly using the following Python code snippet:
+  ```python
+  with open("../data/vectors_dict_comp_v0-3.pkl", "rb") as file:
+      vectors_dict = pickle.load(file)
+  ```
+
+  This repository is part of the TOME project.
+
+
+
+license: "CC BY-SA 4.0"
+funding:
+  - name: "TOME"
+    code: "LL2320"
+    funding-body: "Ministry of Education Youth and Sports"
+    country: "Czech Republic"
+
+authors:
+  - family-names: "Kaše"
+    given-names: "Vojtěch"
+    affiliation: "University of West Bohemia & Institute of Philosophy of the Czech Academy of Sciences"
+    orcid: "https://orcid.org/0000-0002-6601-1605"
+  - family-names: "Tvrz"
+    given-names: "Jan"
+    affiliation: "University of West Bohemia & Institute of Philosophy of the Czech Academy of Sciences"
+    orcid: "https://orcid.org/0009-0001-8634-4511"
+  - family-names: "Švadlenková"
+    given-names: "Jana"
+    affiliation: "University of West Bohemia & Institute of Philosophy of the Czech Academy of Sciences"
+    orcid: "https://orcid.org/0009-0008-9666-6283"
+  - family-names: "Pavlas"
+    given-names: "Petr"
+    affiliation: "University of West Bohemia & Institute of Philosophy of the Czech Academy of Sciences"
+    orcid: "https://orcid.org/0000-0001-9848-4995"
