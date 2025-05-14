@@ -27,7 +27,7 @@ description:
 
   From these sentences, we first filter only for words morphologically annotated as nouns (NOUN), verbs (VERB), adjectives (ADJ), and proper names (PROPN), as these words tend to be semantically most loaded words.
 
-  Further, we calculate raw frequencies of these words across the four subcorpora. These frequencies we employ to further reduce the size of the vocabulary, i.e., the list of words for which we generate the vectors. First, we extract 2,000 most frequent (lemmatized) words for each subcorpus. This produces a list of 6643 unique words. Second, we exclude all words appearing less than 5 times in any of the subcorpora. This reduces the vocabulary to 6,005 unique lemmata. Thus, the models can be aligned by an extensive shared vocabulary overlap.
+  Further, we calculate raw frequencies of these words across the four subcorpora. These frequencies we employ to further reduce the size of the vocabulary, i.e., the list of words for which we generate the vectors. First, we extract 2,000 most frequent (lemmatized) words for each subcorpus. This produces a list of 6643 [NOTICE: outdated values from a previous version] unique words. Second, we exclude all words appearing less than 5 times in any of the subcorpora. This reduces the vocabulary to 6,005 unique lemmata. Thus, the models can be aligned by an extensive shared vocabulary overlap.
 
   For the models, we employ the FastText algorithm, with the exact same parametrization as in this paper:
 
