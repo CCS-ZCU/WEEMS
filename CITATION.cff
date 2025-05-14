@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "WEEMS: Word Embeddings for Early Modern Science"
 version: "0.3"
 description:
-  In this repository, we train and make available for reuse by other scholars a series of word vector models on two corpora of Early Modern Latin texts:
+  In this repository, we make available for reuse a series of word vector models trained on two corpora of Early Modern Latin texts:
   * Noscemus Digital Sourcebook (a corpus of digitized Early modern scientific texts in Latin, https://doi.org/10.5281/zenodo.15040256)
   * EMLAP (a corpus of digitized Early Modern Latin Alchemical Prints, https://doi.org/10.5281/zenodo.14765294)
   In addition to that, for comparison, we also implement two other word embedding models based on LASLA and OperaMaiora publicly available from here: https://embeddings.lila-erc.eu/#topnav
