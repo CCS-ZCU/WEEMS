@@ -2,57 +2,44 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "WEEMS: Word Embeddings for Early Modern Science"
 version: "0.3"
-description: >
-  In this repository, we make available for reuse a series of word vector models trained on two corpora of Early Modern Latin texts:
-  * Noscemus Digital Sourcebook (a corpus of digitized Early modern scientific texts in Latin, https://doi.org/10.5281/zenodo.15040256)
-  * EMLAP (a corpus of digitized Early Modern Latin Alchemical Prints, https://doi.org/10.5281/zenodo.14765294)
-  In addition to that, for comparison, we also implement two other word embedding models based on LASLA and OperaMaiora, which are publicly available at: https://embeddings.lila-erc.eu/#topnav
-
-  In total, we offer 4 temporal models based on NOSCEMUS, 8 discipline-specific models derived from NOSCEMUS, 1 model trained on the EMLAP corpus, and two pretrained models inherited from other resources:
-  * NOSCEMUS - 1501-1550
-  * NOSCEMUS - 1551-1600
-  * NOSCEMUS - 1601-1650
-  * NOSCEMUS - 1651-1700
-  * NOSCEMUS - Alchemy/Chemistry
-  * NOSCEMUS - Astronomy/Astrology/Cosmography
-  * NOSCEMUS - Biology
-  * NOSCEMUS - Geography/Cartography
-  * NOSCEMUS - Mathematics
-  * NOSCEMUS - Medicine
-  * NOSCEMUS - Meteorology/Earth sciences
-  * NOSCEMUS - Physics
-  * EMLAP
-  * LASLA
-  * Opera Maiora
-
-  We train the models on textual data, previously preprocessed and automatically morphologically annotated using scripts in the following GitHub repositories:
-  * NOSCEMUS: https://github.com/CCS-ZCU/noscemus_ETF
-  * EMLAP: https://github.com/CCS-ZCU/EMLAP_ETL
-
-  Thus, the training textual data have the form of automatically lemmatized and morphologically annotated Latin sentences. From these sentences, we filter morphologically annotated nouns (NOUN), verbs (VERB), adjectives (ADJ), and proper names (PROPN), as they tend to be semantically most relevant.
-
-  We further refine the vocabulary by calculating raw word frequencies across subcorpora. Specifically:
-  1. 2,000 most frequent (lemmatized) words from each subcorpus are extracted, yielding a [NOTICE: outdated] vocabulary size of 6643 unique words.
-  2. Words with less than 5 occurrences are excluded, reducing the vocabulary to 6,005 unique lemmas (ensuring overlap for model alignment).
-
-  The models are trained using the FastText algorithm, with the same parametrization used in this paper:
-  * Sprugnoli, R., Moretti, G., & Passarotti, M. (2020). Building and Comparing Lemma Embeddings for Latin. Classical Latin versus Thomas Aquinas. Italian Journal of Computational Linguistics, 6(1). https://doi.org/10.5281/ZENODO.4618000
-
-  This standardization makes our vectors directly comparable to those generated for LASLA and OperaMaiora.
-
-  **Models Availability**:
-  * The models are distributed in one pickle file as a Gensim-compatible Python dictionary of Keyed Vectors: `/data/vectors_dict_comp_v0-3.pkl`.
-  * After downloading or cloning the repository, load them using the following Python snippet:
-    ```python
-    with open("../data/vectors_dict_comp_v0-3.pkl", "rb") as file:
-        vectors_dict = pickle.load(file)
-    ```
-
-
-  This repository is part of the TOME project.
 license: "CC-BY-SA-4.0"
 funding:
   - name: "TOME (LL2320), funded by the Ministry of Education Youth and Sports, Czech Republic"
+authors:
+  - family-names: "Kaše"
+    given-names: "Vojtěch"
+    affiliation: "University of West Bohemia"
+    orcid: "0000-0002-6601-1605"
+  - family-names: "Tvrz"
+    given-names: "Jan"
+    affiliation: "University of West Bohemia"
+    orcid: "0009-0001-8634-4511"
+  - family-names: "Švadlenková"
+    given-names: "Jana"
+    affiliation: "University of West Bohemia"
+    orcid: "0009-0008-9666-6283"
+  - family-names: "Pavlas"
+    given-names: "Petr"
+    affiliation: "University of West Bohemia"
+    orcid: "0000-0001-9848-4995"
+
+
+ cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "WEEMS: Word Embeddings for Early Modern Science"
+version: "0.3"
+description:
+license: "CC-BY-SA-4.0"
+repository-code: "https://github.com/ccs-zcu/WEEMS"  # optional but recommended if public
+doi: "10.5281/zenodo.15418945"  # optional, only if this repo has its own DOI
+keywords:
+  - interactive visualization
+  - word embeddings
+  - early modern science
+  - digital humanities
+  - historical semantics
+funding:
+  - name: "TOME (LL2320), funded by the Ministry of Education, Youth and Sports, Czech Republic"
 authors:
   - family-names: "Kaše"
     given-names: "Vojtěch"
