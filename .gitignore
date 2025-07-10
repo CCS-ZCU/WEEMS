@@ -2,5 +2,5 @@
 .env
 .DS_Store
 /data/ServiceAccountsKey.json
-data/large_data/
+data/large_files/
 latin-bert/
