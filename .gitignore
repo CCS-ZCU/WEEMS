@@ -4,3 +4,4 @@
 /data/ServiceAccountsKey.json
 data/large_files/
 latin-bert/
+/data/cos_sim_matrices_dict_f16.pkl
