@@ -1,85 +1,95 @@
-# WEEMS: Word Embeddings for Early Modern Science 
+# WEEMS: Word Embeddings for Early Modern Science  
 
 ---
 
 ## Authors
 
-* Vojtěch Kaše, Jan Tvrz, Jana Švadlenková, Petr Pavlas
+- Vojtěch Kaše  
+- Jan Tvrz  
+- Jana Švadlenková
+- Georgiana Hedesan
+- Petr Pavlas  
 
 ## License
 
-CC-BY-SA 4.0, see attached License.md
+CC-BY-SA 4.0, see attached `License.md`.
 
 ---
 
-In this repository, we make available for reuse a series of word vector models trained on two corpora of Early Modern Latin texts:
-  * Noscemus Digital Sourcebook (a corpus of digitized Early modern scientific texts in Latin, https://doi.org/10.5281/zenodo.15040256)
-  * EMLAP (a corpus of digitized Early Modern Latin Alchemical Prints, https://doi.org/10.5281/zenodo.14765294)
-  
-In addition to that, for comparison, we also implement two other word embedding models based on LASLA and OperaMaiora publicly available from here: https://embeddings.lila-erc.eu/#topnav
+## Overview  
 
-In total, we offer 4 temporal models based on NOSCEMUS, 8 discipline-specific models based on NOSCEMUS, 1 model trained on the EMLAP corpus, and two pretrained models inherited from other resources.
-  * NOSCEMUS - 1501-1550
-  * NOSCEMUS - 1551-1600,
-  * NOSCEMUS - 1601-1650,
-  * NOSCEMUS - 1651-1700,
-  * NOSCEMUS - Alchemy/Chemistry
-  * NOSCEMUS - Astronomy/Astrology/Cosmography
-  * NOSCEMUS - Biology
-  * NOSCEMUS - Geography/Cartography
-  * NOSCEMUS - Mathematics
-  * NOSCEMUS - Medicine
-  * NOSCEMUS - Meteorology/Earth sciences
-  * NOSCEMUS - Physics
-  * LASLA
-  * Opera Maiora
-  * EMLAP
+This repository provides a series of word vector models trained on two corpora of Early Modern Latin texts:  
 
-We train the models on textual data, which we previously preprocessed and automatically morphologically annotated using scripts in the following GitHub repositories: https://github.com/CCS-ZCU/noscemus_ETF and https://github.com/CCS-ZCU/EMLAP_ETL. Thus, the training textual data have the form of automatically lemmatized and morphologically annotated Latin sentences.
+- **Noscemus Digital Sourcebook** – a corpus of digitized Early Modern scientific texts in Latin  
+  [DOI: 10.5281/zenodo.15040256](https://doi.org/10.5281/zenodo.15040256)  
+- **EMLAP** – a corpus of digitized Early Modern Latin Alchemical Prints  
+  [DOI: 10.5281/zenodo.14765294](https://doi.org/10.5281/zenodo.14765294)  
 
-From these sentences, we first filter only for words morphologically annotated as nouns (NOUN), verbs (VERB), adjectives (ADJ), and proper names (PROPN), as these words tend to be semantically most loaded words.
+For comparison, we also include two publicly available embedding models based on LASLA and Opera Maiora:  
+[https://embeddings.lila-erc.eu/#topnav](https://embeddings.lila-erc.eu/#topnav)  
 
-Further, we calculate raw frequencies of these words across the subcorpora. These frequencies we employ to further reduce the size of the vocabulary, i.e., the list of words for which we generate the vectors. First, we extract 2,000 most frequent (lemmatized) words for each subcorpus. This produces a list of 6643 [NOTICE: outdated values from a previous version] unique words. Second, we exclude all words appearing less than 5 times in any of the subcorpora. This reduces the vocabulary to 6,005 unique lemmata. Thus, the models can be aligned by an extensive shared vocabulary overlap.
+In total, the WEEMS collection offers:  
 
-For the models, we employ the FastText algorithm, with the exact same parametrization as in this paper:
+- 4 temporal models based on NOSCEMUS  
+- 8 discipline-specific models based on NOSCEMUS  
+- 1 model trained on EMLAP  
+- 2 pretrained models (LASLA and Opera Maiora)  
 
-  Sprugnoli, R., Moretti, G., & Passarotti, M. (2020). Building and Comparing Lemma Embeddings for Latin. Classical Latin versus Thomas Aquinas. Italian Journal of Computational Linguistics, 6(1). https://doi.org/10.5281/ZENODO.4618000
-
-  This makes our vectors directly comparable with their vectors generated for Lasla and OperaMaiora.
-
-  The models are available in the form of one pickle file as a Python dictionary of Gensim library keyed vectors: `/data/vectors_dict_comp_v0-3.pkl`. Once you download or clone the repository, you can load them directly using the following Python code snippet:
-  ```python
-  with open("../data/vectors_dict_comp_v0-3.pkl", "rb") as file:
-      vectors_dict = pickle.load(file)
-  ```
-
-This repository is part of the [TOME project](https://tome.flu.cas.cz).
-
-# Getting started
-
-```bash
-git clone [url-of-the-git-file]
-cd [name-of-the-repo]
-# (recommendation: create and activate a virtual environement)
-pip install -r requirements.txt
-```
-
-We reccommend to use a dedicated virtual environment for the whole project:
-
-```bash
-python3 -m venv latin_venv # or specify your own source python to replicate (e.g. python3.12 etc.)
-latin_venv/bin/python -m pip install --upgrade pip
-latin_venv/bin/python -m pip install -r requirements.txt
-latin_venv/bin/python -m ipykernel install --user -name=noscemus_kernel # create the jupyter kernel to be used by the notebooks
-echo "/latin_venv/" >> .gitignore # add the virtual_venv directory to .gitignore, to prevents its synchronization via github
-```
-
-Anytime you need to install another package, run `noscemus_venv/bin/python -m pip install <package-name>` or have the environment activated: `source noscemus_venv/bin/activate`.
-
-Finally, go to the `scripts` directory and run the Jupyter notebooks you wish;-).
+**List of models**  
+- NOSCEMUS – 1501–1550  
+- NOSCEMUS – 1551–1600  
+- NOSCEMUS – 1601–1650  
+- NOSCEMUS – 1651–1700  
+- NOSCEMUS – Alchemy/Chemistry  
+- NOSCEMUS – Astronomy/Astrology/Cosmography  
+- NOSCEMUS – Biology  
+- NOSCEMUS – Geography/Cartography  
+- NOSCEMUS – Mathematics  
+- NOSCEMUS – Medicine  
+- NOSCEMUS – Meteorology/Earth sciences  
+- NOSCEMUS – Physics  
+- LASLA  
+- Opera Maiora  
+- EMLAP  
 
 ---
+
+## Data preprocessing  
+
+All models were trained on automatically lemmatized and morphologically annotated sentences, processed with [LatinCy](https://github.com/bmispelon/latincy) (Burns, 2023), which builds on the [spaCy](https://spacy.io) NLP library (Montani et al., 2023).  
+
+- From the corpora, we retained only tokens tagged as **NOUN**, **VERB**, **ADJ**, and **PROPN**.  
+- For each subcorpus, we calculated raw lemma frequencies.  
+- We then extracted the **5,000 most frequent lemmata per subcorpus**, yielding a combined vocabulary of **11,044 unique words**.  
+- During training, items with fewer than **10 occurrences** within a subcorpus were excluded.  
+
+This pipeline ensures that each subcorpus model is both representative of its domain and aligned with a substantial shared vocabulary, making **cross-corpus comparisons** possible.  
+
+Homographs and polysemous lemmata (e.g., *liber* ‘book/free’) are not split into separate vectors, which results in blended representations. This is a known limitation of type-based embeddings and flagged for future refinement.  
+
+---
+
+## Training details  
+
+We employ the **FastText** algorithm with the same parametrization as in:  
+
+> Sprugnoli, R., Moretti, G., & Passarotti, M. (2020). *Building and Comparing Lemma Embeddings for Latin. Classical Latin versus Thomas Aquinas.* *Italian Journal of Computational Linguistics, 6(1).* [DOI: 10.5281/zenodo.4618000](https://doi.org/10.5281/zenodo.4618000)  
+
+This alignment makes WEEMS vectors directly comparable to LASLA and Opera Maiora embeddings.  
+
+The models have been intrinsically evaluated on a standard Latin synonym-selection benchmark, where they achieve high accuracy (≈0.87–0.93 on covered items) across subcorpora, confirming their reliability for both exploratory and comparative research.  
+
+The models are distributed as a single pickle file containing a Python dictionary of Gensim `KeyedVectors`:  
+
+```python
+import pickle
+
+with open("../data/vectors_dict_comp.pkl", "rb") as file:
+    vectors_dict = pickle.load(file)
+```
 
 ## Scripts
 
-The scripts are in the `scripts` subfolder and their numbers and titles should be self-explanatory. Usually, they have the form of Jupyter notebooks.
+Scripts and example notebooks are located in the scripts subfolder. Their numbering and titles are self-explanatory. They provide usage examples for loading models, querying nearest neighbors, and reproducing evaluation experiments.
+
+This repository is part of the TOME project.
