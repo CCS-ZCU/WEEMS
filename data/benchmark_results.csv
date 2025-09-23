@@ -1,0 +1,16 @@
+,submodel,covered_min1,accuracy_min1,covered_all,accuracy_all
+0,NOSCEMUS - 1501-1550,0.4,0.91,0.06,0.89
+1,NOSCEMUS - 1551-1600,0.41,0.91,0.06,0.89
+2,NOSCEMUS - 1601-1650,0.41,0.9,0.06,0.87
+3,NOSCEMUS - 1651-1700,0.41,0.9,0.06,0.89
+4,NOSCEMUS - Alchemy/Chemistry,0.39,0.87,0.05,0.8
+5,NOSCEMUS - Astronomy/Astrology/Cosmography,0.41,0.91,0.06,0.91
+6,NOSCEMUS - Biology,0.41,0.91,0.06,0.87
+7,NOSCEMUS - Geography/Cartography,0.41,0.91,0.06,0.89
+8,NOSCEMUS - Mathematics,0.4,0.88,0.06,0.84
+9,NOSCEMUS - Medicine,0.42,0.93,0.06,0.89
+10,NOSCEMUS - Meteorology/Earth sciences,0.41,0.93,0.06,0.92
+11,NOSCEMUS - Physics,0.41,0.91,0.06,0.88
+12,EMLAP,0.31,0.84,0.03,0.7
+13,LASLA,0.64,0.87,0.63,0.87
+14,Opera Maiora,0.26,0.85,0.01,0.87
