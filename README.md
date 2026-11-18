@@ -93,3 +93,10 @@ with open("../data/vectors_dict_comp.pkl", "rb") as file:
 Scripts and example notebooks are located in the scripts subfolder. Their numbering and titles are self-explanatory. They provide usage examples for loading models, querying nearest neighbors, and reproducing evaluation experiments.
 
 This repository is part of the TOME project.
+
+## Repository housekeeping
+
+IDE artifacts (`.idea/`, `*.iml`) and Jupyter checkpoints (`.ipynb_checkpoints/`)
+are not tracked. Bulk data and model directories (`large_files/`, `large_data/`)
+are never committed; keep large inputs and outputs there. See the
+[organizer](https://github.com/kasev/organizer) workspace for the shared workflow.
